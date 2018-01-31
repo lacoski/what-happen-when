@@ -108,7 +108,7 @@ Bây h net lib có IP của our DNS server hoặc gw mặc định, nó có th�
 - Nếu Local/ISP DNS sr ko có, sẽ tiếp tục đệ quy tới các DNS theo list cho đên khi đặt tới SOA. Khi phát hiện, kết quả sẽ trả lại
 
 ## Mở socket
-Khi broser nhận IP add của server đích, nó sẽ lấy thống tin, sử dụng port từ URL (mặc đinh http 80, https 443), sử dụng lời gọi trong thư viện hàm socket và yêu câu TCP socket stream - AF_INET/AF_INET6 và SOCK_STREAM
+Khi browser nhận IP add của server đích, nó sẽ lấy thống tin, sử dụng port từ URL (mặc đinh http 80, https 443), sử dụng lời gọi trong thư viện hàm socket và yêu câu TCP socket stream - AF_INET/AF_INET6 và SOCK_STREAM
 + Request đầu tiên tơi Transport Layer, nơi TCP segment đc tạo. Port đích được add vào header, port nguồn được chọn từ kernel's dynamic port range (ip_local_port_range in Linux).
 + Segment được gửi tới Net layer, đóng gói với IP header được thêm vào. Ip add của des server và IP máy hiện tại được thêm vào, tạo thành gói tin
 + Tiếp theo, Packet tới Link Layer. Frame header được thêm, bao gồm MAC address máy gửi (machine's NIC) cũng như MAC address của gateway (local router). Trước đó, nếu kernel không biết MAC add của Gateway, nó sẽ quảng bá = ARP query để tìm kiếm.
@@ -152,7 +152,7 @@ Quá trình gửi và nhận xảy ra nhiều lần theo luồng kết nối TCP
 - Từ thời điểm, phiên TLS sẽ truyền application (HTTP) data với mã bằng bộ khóa đối xứng.
 
 ## HTTP protocol
-- Nếu web broser được viết bởi gg, thay vì gửi HTTP request để nhận page, nó sẽ gửi request thử yêu cầu với máy chủ nâng cấp giao thức HTTP thành giao thức SPDY.
+- Nếu web browser được viết bởi gg, thay vì gửi HTTP request để nhận page, nó sẽ gửi request thử yêu cầu với máy chủ nâng cấp giao thức HTTP thành giao thức SPDY.
 - Nếu client sử dụng gt http và không hỗ trợ SPDY, nó sẽ gửi request tới server với form:
 ```python
 GET / HTTP/1.1
@@ -160,7 +160,7 @@ Host: google.com
 Connection: close
 [other headers]
 ```
-- [other headers] = chuỗi cặp giá trị khóa được phân cách = dấu gạch, định dạng theo cấu trúc HTTP và phân tách = dòng mới (giả định web broser không xảy ra bất kỳ lỗi, vi phạm thông số HTTP. Sẽ có sự khác biệt giữa các phiên bản HTTP/1.1, 1.0, 0.9)
+- [other headers] = chuỗi cặp giá trị khóa được phân cách = dấu gạch, định dạng theo cấu trúc HTTP và phân tách = dòng mới (giả định web browser không xảy ra bất kỳ lỗi, vi phạm thông số HTTP. Sẽ có sự khác biệt giữa các phiên bản HTTP/1.1, 1.0, 0.9)
 - HTTP/1.1 định nghĩa tùy chọn "close" connection khi người gửi báo hiệu connection sẽ đóng sau khi hoàn thành yêu cầu hiện tại
 ```python
 Connection: close
@@ -223,7 +223,7 @@ Browser interface có nhiều điểm chung, các phần có thể:
   + Networking: xử lý network calls như HTTP request, sử dụng thực thi khác nhau trên những nền tảng khác nhau.
   + UI backend: được sử dụng tạo widget như hộp kết hợp và cửa sổ. Sử dụng phương pháp cung cấp từ OS.
   + JavaScript engine: Sử dụng phấp tích cú pháp thực hiện Javascript code.
-  + Data storage: persistence layer. Browser đôi khi cần lưu trữ các dữ liệu nội bộ như cookie. Broser cũng hỗ trợ các pp lưu như localStorage, IndexedDB, WebSQL and FileSystem.
+  + Data storage: persistence layer. Browser đôi khi cần lưu trữ các dữ liệu nội bộ như cookie. browser cũng hỗ trợ các pp lưu như localStorage, IndexedDB, WebSQL and FileSystem.
 
 ## Phân tích cú pháp HTML (HTML parsing)
 - Rendering engine xử lý khi nhận content docs sau request.
@@ -272,5 +272,5 @@ Browser interface có nhiều điểm chung, các phần có thể:
 
 ## Window Server
 ## Post-rendering and user-induced execution
-- Sau khi quá trình render hoàn tất, broser thực hiện js script
+- Sau khi quá trình render hoàn tất, browser thực hiện js script
 - Các plugin như Flash hoặc Java có thể được thực hiện, mặc dù không phải vào thời điểm tại Google homepage. Các script có thể thực hiện tác network request bổ sung, cũng như thay đổi page, bố cục, causing another round of page rendering and painting.
